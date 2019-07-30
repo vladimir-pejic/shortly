@@ -1,0 +1,6 @@
+/.idea
+/.vscode
+node_modules/
+requests/
+.jshintrc
+package-lock.json

@@ -1,0 +1,22 @@
+{
+  "name": "shortly",
+  "version": "1.0.0",
+  "description": "URL shortener service",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Vladimir Pejic <vladimir.pejic@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.2.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.7",
+    "shortid": "^2.2.14",
+    "valid-url": "^1.0.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
