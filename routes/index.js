@@ -1,7 +1,14 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
 
 const Url = require('../models/Url');
+
+// @route           GET /
+// @description     App's landing page
+router.get('/', (req, res) => {
+    res.sendFile(path.dirname(require.main.filename) + '/public/index.html');
+});
 
 // @route           GET /:code
 // @description     Redirect to the long/original URL

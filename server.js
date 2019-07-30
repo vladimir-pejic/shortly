@@ -5,6 +5,9 @@ const PORT = 5000;
 
 connectDB();
 app.use(express.json({ extended: false }));
+app.use('/', express.static('./public', {
+    index: "index.html"
+}));
 app.use('/', require('./routes/index'));
 app.use('/api/url', require('./routes/url'));
 
