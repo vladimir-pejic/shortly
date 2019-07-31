@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+
 
 ReactDOM.render(
-  <h1>Shorty App!</h1>,
-  document.getElementById('app')
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById('app'),
 );
