@@ -2,6 +2,8 @@
 /.vscode
 node_modules/
 requests/
-public/
+public/index.html
+public/main.js
+config/default.json
 .jshintrc
 package-lock.json
