@@ -6,7 +6,7 @@ class UrlForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {longUrl: ''};
-        this.endpoint = 'http://localhost:5000/api/url/shorten';
+        this.endpoint = '/api/url/shorten';
   
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
