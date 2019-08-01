@@ -24,12 +24,6 @@ if(config.util.getEnv('NODE_ENV') == 'production') {
 connectDB();
 app.use(express.json({ extended: false }));
 app.use(cors(corsOptions));
-app.use('/', express.static('./public', {
-    index: "index.html"
-}));
-app.use('/', require('./routes/index'));
-app.use('/api/url', require('./routes/url'));
-
 app.enable('trust proxy');
 app.use (function (req, res, next) {
         if (req.secure && config.util.getEnv('NODE_ENV') == 'production') {
@@ -38,6 +32,12 @@ app.use (function (req, res, next) {
             next();  
         }
 });
+
+app.use('/', express.static('./public', {
+    index: "index.html"
+}));
+app.use('/', require('./routes/index'));
+app.use('/api/url', require('./routes/url'));
 
 app.listen(config.get('port'), () => console.log('HTTP server running on port ' + config.get('port')));
 if(config.util.getEnv('NODE_ENV') == 'production') {
