@@ -26,7 +26,7 @@ app.use(express.json({ extended: false }));
 app.use(cors(corsOptions));
 app.enable('trust proxy');
 app.use (function (req, res, next) {
-        if (req.secure && config.util.getEnv('NODE_ENV') == 'production') {
+        if (!req.secure && config.util.getEnv('NODE_ENV') == 'production') {
             res.redirect('https://' + req.headers.host + req.url);
         } else {
             next();  
