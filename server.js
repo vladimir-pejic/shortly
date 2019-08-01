@@ -15,7 +15,7 @@ if(config.util.getEnv('NODE_ENV') == 'production') {
         const ssl_options = {
             key: fs.readFileSync("/etc/letsencrypt/live/shrtd.co/privkey.pem").toString(),
             cert: fs.readFileSync("/etc/letsencrypt/live/shrtd.co/cert.pem").toString(),
-            ca: fs.readFileSync('/etc/letsencrypt/live/shrtd.co/chain.crt').toString()
+            ca: fs.readFileSync('/etc/letsencrypt/live/shrtd.co/chain.pem').toString()
           };
     }
 }
