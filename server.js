@@ -29,8 +29,9 @@ app.use('/', express.static('./public', {
 app.use('/', require('./routes/index'));
 app.use('/api/url', require('./routes/url'));
 
-app.listen(config.get('port'), () => console.log('Server running on port ' + config.get('port')));
 if(typeof ssl_options !== 'undefined' && ssl_options) {
-    https.createServer(ssl_options, app).listen(config.get('port'));
+    https.createServer(ssl_options, app).listen(config.get('port'), () => console.log('HTTPS server running on port' + config.get('port')));
+} else {
+    app.listen(config.get('port'), () => console.log('Server running on port ' + config.get('port')));
 }
 
