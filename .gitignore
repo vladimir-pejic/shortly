@@ -4,6 +4,7 @@ node_modules/
 requests/
 public/index.html
 public/main.js
-config/default.json
+config/production.json
 .jshintrc
 package-lock.json
+.htaccess
