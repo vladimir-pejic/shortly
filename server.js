@@ -29,11 +29,14 @@ app.use('/', express.static('./public', {
 }));
 app.use('/', require('./routes/index'));
 app.use('/api/url', require('./routes/url'));
-app.use(function(req, res, next) {
-    if (config.util.getEnv('NODE_ENV') == 'production' && (req.get('X-Forwarded-Proto') !== 'https')) {
-        res.redirect('https://' + req.get('Host') + req.url);
-    } else
-        next();
+
+app.enable('trust proxy');
+app.use (function (req, res, next) {
+        if (req.secure && config.util.getEnv('NODE_ENV') == 'production') {
+            res.redirect('https://' + req.headers.host + req.url);
+        } else {
+            next();  
+        }
 });
 
 app.listen(config.get('port'), () => console.log('HTTP server running on port ' + config.get('port')));
