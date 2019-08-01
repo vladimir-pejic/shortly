@@ -11,10 +11,11 @@ const corsOptions = {origin: config.get('baseUrl')};
 // SSL setup if production env and certificate is present
 console.log('NODE_ENV: ' + config.util.getEnv('NODE_ENV'));
 if(config.util.getEnv('NODE_ENV') == 'production') {
-    if(fs.readFileSync("/etc/letsencrypt/live/shrtd.co/chain.pem")) {
+    if(fs.readFileSync("/etc/letsencrypt/live/shrtd.co/cert.pem")) {
         const ssl_options = {
-            key: fs.readFileSync("/etc/letsencrypt/live/shrtd.co/privkey.pem"),
-            cert: fs.readFileSync("/etc/letsencrypt/live/shrtd.co/chain.pem")
+            key: fs.readFileSync("/etc/letsencrypt/live/shrtd.co/privkey.pem").toString(),
+            cert: fs.readFileSync("/etc/letsencrypt/live/shrtd.co/cert.pem").toString(),
+            ca: fs.readFileSync('/etc/letsencrypt/live/shrtd.co/chain.crt').toString()
           };
     }
 }
