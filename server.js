@@ -6,17 +6,21 @@ const config = require('config');
 const connectDB = require('./config/db');
 const app = express();
 
+let ssl_options;
 const corsOptions = {origin: config.get('baseUrl')};
 
 // SSL setup if production env and certificate is present
 console.log('NODE_ENV: ' + config.util.getEnv('NODE_ENV'));
 if(config.util.getEnv('NODE_ENV') == 'production') {
+    console.log('Production environment - attempting to read certificate.');
     if(fs.readFileSync("/etc/letsencrypt/live/shrtd.co/cert.pem")) {
-        const ssl_options = {
+        ssl_options = {
             key: fs.readFileSync("/etc/letsencrypt/live/shrtd.co/privkey.pem").toString(),
             cert: fs.readFileSync("/etc/letsencrypt/live/shrtd.co/cert.pem").toString(),
             ca: fs.readFileSync('/etc/letsencrypt/live/shrtd.co/chain.pem').toString()
-          };
+        };
+        console.log('Certificate found.');
+        console.log(ssl_options);
     }
 }
 
