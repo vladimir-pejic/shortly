@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.set('useCreateIndex', true);
 
 const UserSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
@@ -24,5 +25,15 @@ UserSchema.pre('save', function(next) {
         next();
     }
 });
+
+UserSchema.methods.isCorrectPassword = function(password, callback) {
+    bcrypt.compare(password, this.password, function(err, same) {
+        if (err) {
+            callback(err);
+        } else {
+            callback(err, same);
+        }
+    });
+};
 
 module.exports = mongoose.model('User', UserSchema);
