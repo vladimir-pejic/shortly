@@ -38,6 +38,7 @@ app.use('/', express.static('./public', {
 }));
 app.use('/', require('./routes/index'));
 app.use('/api/url', require('./routes/url'));
+app.use('/api/user', require('./routes/user'));
 
 app.listen(config.get('port'), () => console.log('HTTP server running on port ' + config.get('port')));
 if(config.util.getEnv('NODE_ENV') == 'production') {
