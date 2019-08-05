@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 mongoose.set('useCreateIndex', true);
 
 const UserSchema = new mongoose.Schema({
@@ -13,7 +15,7 @@ UserSchema.pre('save', function(next) {
     if (this.isNew || this.isModified('password')) {
         // Saving reference to this because of changes
         const document = this;
-        bcrypt.hash(document.password, saltRounds, function(err, hashedPassword) {
+        bcrypt.hash(document.password, saltRounds, (err, hashedPassword) => {
             if (err) {
                 next(err);
             } else {

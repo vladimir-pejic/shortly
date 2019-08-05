@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const config = require('config');
 const User = require('../models/User.js');
 const withAuth = require('../middlewares/authenticated');
 
@@ -39,7 +40,7 @@ router.post('/authenticate', (req, res) => {
                 } else {
                     // Issue token
                     const payload = { email };
-                    const token = jwt.sign(payload, secret, { expiresIn: '1h' });
+                    const token = jwt.sign(payload, config.get('secret'), { expiresIn: '1h' });
                     res.cookie('token', token, { httpOnly: true }).sendStatus(200);
                 }
             });

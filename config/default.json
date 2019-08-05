@@ -1,5 +1,6 @@
 {
     "mongoUri": "mongodb://localhost:27017/shortly",
     "baseUrl": "http://localhost:5000",
-    "port": 5000
+    "port": 5000,
+    "secret": "D30ojD0s0i3KoxGR2a59lfs9q02d8dXs25DibUw91"
 }
