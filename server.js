@@ -12,14 +12,13 @@ const corsOptions = {origin: config.get('baseUrl')};
 
 // Get SSL certificate if in production environment and certificate is present
 if(config.util.getEnv('NODE_ENV') == 'production') {
-    console.log('Production environment - attempting to read certificate.');
     if(fs.readFileSync("/etc/letsencrypt/live/shrtd.co/cert.pem")) {
         ssl_options = {
             key: fs.readFileSync("/etc/letsencrypt/live/shrtd.co/privkey.pem").toString(),
             cert: fs.readFileSync("/etc/letsencrypt/live/shrtd.co/cert.pem").toString(),
             ca: fs.readFileSync('/etc/letsencrypt/live/shrtd.co/chain.pem').toString()
         };
-        console.log('Certificate found.');
+        console.log('SSL Certificate found.');
     }
 }
 
@@ -32,11 +31,11 @@ app.enable('trust proxy');
 
 // Enforce redirect to HTTPS if in production environment
 app.use (function (req, res, next) {
-        if (!req.secure && config.util.getEnv('NODE_ENV') == 'production') {
-            res.redirect('https://' + req.headers.host + req.url);
-        } else {
-            next();  
-        }
+    if (!req.secure && config.util.getEnv('NODE_ENV') == 'production') {
+        res.redirect('https://' + req.headers.host + req.url);
+    } else {
+        next();  
+    }
 });
 
 // Include all the static and routes
