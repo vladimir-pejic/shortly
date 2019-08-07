@@ -3,7 +3,6 @@ const router = express.Router();
 const validUrl = require('valid-url');
 const shortId = require('shortid');
 const config = require('config');
-const cors = require('cors');
 
 const Url = require('../models/Url');
 
@@ -44,7 +43,6 @@ router.post('/shorten', async (req, res) => {
             }
 
         } catch (error) {
-            console.error(error);
             res.status(500).json('Server error.')
         }
     } else {

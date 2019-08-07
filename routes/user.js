@@ -48,8 +48,4 @@ router.post('/authenticate', (req, res) => {
     });
 });
 
-router.get('/dashboard', withAuth, (req, res) => {
-    res.send('I know Kung-FU.');
-});
-
 module.exports = router;
