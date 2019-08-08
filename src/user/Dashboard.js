@@ -16,10 +16,10 @@ export default class Dashboard extends Component {
                 <div className="bg-white mx-auto rounded overflow-hidden shadow-lg">
                     <div className="px-6 py-4">
                         <ul className="flex">
-                            <li className="mr-6"><a class="text-blue-500 hover:text-blue-800" href="#">Active</a></li>
-                            <li className="mr-6"><a class="text-blue-500 hover:text-blue-800" href="#">Link</a></li>
-                            <li className="mr-6"><a class="text-blue-500 hover:text-blue-800" href="#">Link</a></li>
-                            <li className="mr-6"><a class="text-gray-400 cursor-not-allowed" href="#">Disabled</a></li>
+                            <li className="mr-6"><a className="text-blue-500 hover:text-blue-800" href="#">Active</a></li>
+                            <li className="mr-6"><a className="text-blue-500 hover:text-blue-800" href="#">Link</a></li>
+                            <li className="mr-6"><a className="text-blue-500 hover:text-blue-800" href="#">Link</a></li>
+                            <li className="mr-6"><a className="text-gray-400 cursor-not-allowed" href="#">Disabled</a></li>
                             <li className="mr-6 justify-right"><Link to="/">Close</Link></li>
                         </ul>
                         <p className="text-gray-700 text-base">

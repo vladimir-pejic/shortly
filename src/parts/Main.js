@@ -13,7 +13,7 @@ export default class Main extends Component {
         return (
             <div className="container pt-24 md:pt-48 px-6 mx-auto flex flex-wrap flex-col md:flex-row items-center">
 
-            <div className="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
+            <div className="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden" style={{ backgroundImage: "url('shrtd-logo.png')" }}>
                 <h1 className="my-4 text-3xl md:text-5xl text-blue-300 hover:text-purple-300 font-bold leading-tight text-center md:text-left slide-in-bottom">Shrtd!</h1>
                 <p className="leading-normal text-white text-base md:text-2xl mb-8 text-center md:text-left slide-in-bottom-h1">Free and no fuss URL shortening service!</p>
             </div>
