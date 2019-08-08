@@ -40,6 +40,7 @@ class Login extends Component {
         })
         .then(res => {
             if (res.status === 200) {
+                this.setState({dialog: !this.state.dialog});
                 this.props.history.push('/dashboard');
             } else {
                 const error = new Error(res.error);
