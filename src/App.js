@@ -1,17 +1,18 @@
 import React from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
-import UrlForm from './url/UrlForm.js';
-import Login from './user/Login.js';
+import { Link, Route, Switch, BrowserRouter } from 'react-router-dom';
+import Header from './parts/Header';
+import Main from './parts/Main';
+import Dashboard from './user/Dashboard';
 
 const App = () => 
     <div>
-        <ul>
-            <li><Link to="/login">Login</Link></li>
-        </ul>
-        <Switch>
-            <Route path="/login" component={Login} />
-        </Switch>
-        <UrlForm></UrlForm>
+        <BrowserRouter >
+            <Header></Header>
+            <Switch>
+                <Route exact path="/" component={Main} />
+                <Route path="/dashboard" component={Dashboard} />    
+            </Switch>
+        </BrowserRouter >
     </div>;
 
 export default App;

@@ -3,7 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     watch: false, 
-    mode: 'development', 
+    mode: 'development',
+    resolve: {
+        extensions: ['.js', '.jsx']
+    }, 
     entry: './src/index.js',
     output: {
         filename: 'main.js',
@@ -22,5 +25,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         })
-      ]
+    ],
+    devServer: {
+        historyApiFallback: true
+    },
 };

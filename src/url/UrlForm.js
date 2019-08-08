@@ -47,7 +47,6 @@ class UrlForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit} className="bg-transparent rounded px-8 pt-6 pb-8 mb-4">
                 <div className="mb-4">
-                    {/* <label className="block text-gray-700 text-sm font-bold mb-2" style={{opacity: 1 + 'px !important'}}>Long URL</label> */}
                     <input 
                         className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-4 border-solid border-pink-600" 
                         type="text" 
