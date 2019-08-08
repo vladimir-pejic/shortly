@@ -58,6 +58,7 @@ class Register extends Component {
         })
         .then(res => {
             if (res.status === 200) {
+                this.setState({dialog: !this.state.dialog});
                 this.props.history.push('/');
             } else {
                 const error = new Error(res.error);
@@ -66,7 +67,7 @@ class Register extends Component {
         })
         .catch(err => {
             console.error(err);
-            alert('Error logging in please try again');
+            alert('Error Registering, please try again.');
         });
     }
 

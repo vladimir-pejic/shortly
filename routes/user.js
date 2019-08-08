@@ -3,7 +3,6 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const User = require('../models/User.js');
-const withAuth = require('../middlewares/authenticated');
 
 // @route           POST /api/user/register
 // @description     Register new users
@@ -12,9 +11,10 @@ router.post('/register', (req, res) => {
     const user = new User({ email, firstName, lastName, password });
     user.save((err) => {
         if (err) {
-            res.status(500).send("Error registering new user please try again.");
+            console.log(err);
+            res.status(500).json({ error: "Error registering new user please try again."});
         } else {
-            res.status(200).send("Welcome to the club!");
+            res.sendStatus(200).send("Welcome to the club!");
         }
     });
 });
