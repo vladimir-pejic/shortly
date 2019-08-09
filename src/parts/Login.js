@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import { login } from "../storage/actions/index";
+import store from "../storage/store/index";
+
+// function mapDispatchToProps(dispatch) {
+//     return {
+//       login: logged => dispatch(login(true))
+//     };
+// }
 
 class Login extends Component {
 
@@ -41,6 +50,8 @@ class Login extends Component {
         .then(res => {
             if (res.status === 200) {
                 this.setState({dialog: !this.state.dialog});
+                // this.props.login({logged: true});
+                store.dispatch(login(true));
                 this.props.history.push('/dashboard');
             } else {
                 const error = new Error(res.error);
@@ -79,5 +90,7 @@ class Login extends Component {
     }
     
 }
+
+// const Login = connect(null, mapDispatchToProps)(ConnectedLogin);
 
 export default withRouter(Login);

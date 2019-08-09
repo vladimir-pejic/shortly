@@ -1,15 +1,27 @@
 import React, { Component } from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
+import { connect } from "react-redux";
+import store from "../storage/store/index";
 import Login from './Login';
 import Register from './Register';
 
-export default class Header extends Component {
+// const mapStateToProps = state => {
+//     return { logged: state.logged };
+// };
+
+class Header extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             logged: null,
         };
+
+        // store.subscribe(() => {
+        //     this.setState({
+        //         items: store.getState().logged
+        //     });
+        // });
     }
 
     componentDidMount() {
@@ -58,3 +70,7 @@ export default class Header extends Component {
     }
     
 }
+
+// const Header = connect(mapStateToProps) (ConnectedHeader);
+
+export default Header;
