@@ -3,8 +3,8 @@
 
 ```
 npm install
-npx webpack
 npm run dev
+npx webpack
 ```
 > NOTE: Configure your own MongoDB URI
 
@@ -17,6 +17,7 @@ npm run dev
 + UPDATE 07: Register interface, Dashboard
 + UPDATE 08: Dashboard subroutes, minor fixes
 
+- [ ] TODO: Redux
 - [ ] TODO: User Auth (OAuth)
 - [ ] TODO: User Dashboard features
 - [ ] TODO: Short URL management
