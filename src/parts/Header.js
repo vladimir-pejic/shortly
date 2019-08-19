@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import store from "../storage/store/index";
 import Login from './Login';
 import Register from './Register';
+import Logout from './Logout';
 
 // const mapStateToProps = state => {
 //     return { logged: state.logged };
@@ -58,7 +59,7 @@ class Header extends Component {
                                     <Link to="/dashboard">Dashboard</Link>
                                 </span>
                                 <span className="inline-block text-white no-underline hover:text-yellow-400 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 ">
-                                    Logout
+                                    <Logout></Logout>
                                 </span>
                             </div>
                         )

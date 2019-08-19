@@ -48,4 +48,9 @@ router.post('/authenticate', (req, res) => {
     });
 });
 
+router.get('/logout', (req,res) => {
+    delete req.cookies.token;
+    res.sendStatus(200);
+});
+
 module.exports = router;
